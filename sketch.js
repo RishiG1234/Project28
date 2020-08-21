@@ -1,4 +1,3 @@
-
 const Engine = Matter.Engine;
 const World = Matter.World;
 const Bodies = Matter.Bodies;
@@ -26,16 +25,16 @@ function setup() {
 
 	//Create the Bodies Here.
 	stoneObject = new Stone(235,420,30);
-	treeObject = new Tree(1000,550);
+	treeObject = new Tree(660,320);
 	groundObject = new Ground(width/2,600,width,20);
 	launcherObject = new Launcher(stoneObject.body,{x:235,y:420});
-	mango1 = new Mango(1100,70,30);
+	mango1 = new Mango(950,140,30);
 	mango2 = new Mango(1010,120,30);
 	mango3 = new Mango(1040,170,30);
 	mango4 = new Mango(980,140,30);
-	mango5 = new Mango(1030,120,30);
-	mango6 = new Mango(1120,100,30);
-	mango7 = new Mango(1140,90,30);
+	mango5 = new Mango(930,120,30);
+	mango6 = new Mango(920,140,30);
+	mango7 = new Mango(1000,90,30);
 
 	Engine.run(engine);
   
@@ -69,8 +68,8 @@ function detectCollision(Lstone,Lmango){
 	stoneBodyPosition=Lstone.body.position
 
 	var distance=dist(stoneBodyPosition.x, stoneBodyPosition.y, mangoBodyPosition.x, mangoBodyPosition.y)
-		if(distance<=lmango.r+lstone.r){
-			Matter.Body.setStatic(lmango.body,false);
+		if(distance<=Lmango.r+Lstone.r){
+			Matter.Body.setStatic(Lmango.body,false);
 		}
 }
 
@@ -88,4 +87,3 @@ function keyPressed(){
 		launcherObject.attach(stoneObject.body);
 	}
 }
-
